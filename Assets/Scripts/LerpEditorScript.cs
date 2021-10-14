@@ -27,6 +27,7 @@ public class LerpEditorScript : EditorWindow
 
      #region Actual Variables
      
+     
      Transform firstTransform;
      Transform secondTransform;
 
@@ -91,6 +92,8 @@ public class LerpEditorScript : EditorWindow
      {
           InitTextures();    
           InitData();
+          
+          
      }
      
      public static void InitData()
