@@ -9,6 +9,8 @@ public class LerpBehaviour : MonoBehaviour
     [SerializeField] public Transform firstTransform;
     [SerializeField] public Transform secondTransform;
     [SerializeField] public float movementDuration = 3f;
+
+    [SerializeField] bool canLerp = true;
     
 
     private float elapsedTime;
@@ -20,15 +22,18 @@ public class LerpBehaviour : MonoBehaviour
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        float movementPercentage = elapsedTime / movementDuration;
+        if (canLerp)
+        {
+            elapsedTime += Time.deltaTime;
+            float movementPercentage = elapsedTime / movementDuration;
 
-        transform.position = Vector3.Lerp(firstTransform.position, secondTransform.position, movementPercentage);
+            transform.position = Vector3.Lerp(firstTransform.position, secondTransform.position, movementPercentage);
+        }
     }
 
     public void Remove()
     {
-        Destroy(this);
+        DestroyImmediate(this);
 
     }
 }

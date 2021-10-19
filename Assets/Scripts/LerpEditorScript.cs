@@ -80,7 +80,7 @@ public class LerpEditorScript : EditorWindow
     
 
      #region WindowCommands
-    [MenuItem("Window/Lerp")]
+//     [MenuItem("Window/Lerp")]
      static void OpenWindow()
       {
           LerpEditorScript window = (LerpEditorScript)GetWindow(typeof(LerpEditorScript));
@@ -236,7 +236,7 @@ public class LerpEditorScript : EditorWindow
 
           if (GUILayout.Button("Remove Lerp"))
           {
-               
+               RemoveLerp();
           }
 
           GUILayout.EndArea();
@@ -264,7 +264,7 @@ public class LerpEditorScript : EditorWindow
           if (affectedObject.GetComponent<LerpBehaviour>())
           {
                LerpBehaviour toBeGone = affectedObject.GetComponent<LerpBehaviour>();
-               Destroy(toBeGone);
+               DestroyImmediate(toBeGone);
           }
      }
 
